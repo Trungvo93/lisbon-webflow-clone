@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <div className='flex justify-center h-[70px] '>
+    <div className='flex justify-center h-[70px] bg-black '>
       <div className='max-w-[1350px] w-full h-full flex justify-between items-center px-8 '>
         <Image
           src='/assets/images/Lisbon Brand Logo.svg'

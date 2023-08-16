@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <header>
+        <header className='fixed top-0 left-0 right-0 z-10'>
           <Header />
         </header>
         {/* Banner */}
