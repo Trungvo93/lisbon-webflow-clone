@@ -1,18 +1,34 @@
 import Image from "next/image";
+import { Darker_Grotesque, Oxygen } from "next/font/google";
+const darkerGrotesque = Darker_Grotesque({ subsets: ["latin"] });
+const oxyGen = Oxygen({ subsets: ["latin"], weight: "400" });
 
 const Banner = () => {
   return (
-    <div className=' bg-yellow-300 pt-[70px]     '>
-      <div className='z-30 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
-        <div>The Inventive tech gathering</div>
-        <div>
+    <div className='  pt-[70px] h-screen    '>
+      {/* Paragraph */}
+      <div className='my-12 z-30 absolute  left-1/2 -translate-x-1/2 bottom-[9%] flex items-center justify-center flex-col '>
+        {/* Title */}
+        <div
+          className={`max-w-[710px] mb-[10px] font-semibold text-[120px] ${darkerGrotesque.className} text-center leading-none`}>
+          The <span className='text-[#0fc] text-[120px]'>Inventive</span> tech
+          gathering
+        </div>
+
+        {/* Content */}
+        <div
+          className={`max-w-[700px] my-[36px] text-[18px] text-center ${oxyGen.className} leading-tight	`}>
           Don’t miss out on this amazing opportunity and join us for the
           Entrepreneur, Technophile & Creative Collaboration event!
         </div>
-        <button>Book your Ticket</button>
+        <button
+          className={`bg-[#0fc] ${oxyGen.className}  px-[30px] py-[20px] text-black rounded-[17px] hover:bg-[#0fc]/80 duration-300 leading-[18.2px]`}>
+          Book your Ticket
+        </button>
+        <div className='absolute inset-0 bg-black -z-10 opacity-70 blur-2xl'></div>
       </div>
-      <div className='relative h-screen overflow-hidden'>
-        <div className=' absolute inset-0 animate-infinite'>
+      <div className='relative inset-0 h-full  overflow-hidden'>
+        <div className=' h-full w-full animate-infinite'>
           <div className='relative w-full h-full'>
             <Image
               src='/assets/images/Hero Image 3.png'
@@ -137,6 +153,7 @@ const Banner = () => {
             />
           </div>
         </div>
+        <div className='h-[20%]  z-10 absolute bottom-0 inset-x-0 bg-gradient-to-t from-black from-40% '></div>
       </div>
     </div>
   );
