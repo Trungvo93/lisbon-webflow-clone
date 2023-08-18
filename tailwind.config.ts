@@ -22,6 +22,9 @@ const config: Config = {
       animation: {
         infinite: "translate_infinite 20s linear infinite",
       },
+      colors: {
+        "cyan-default": "#0fc",
+      },
     },
   },
   plugins: [],

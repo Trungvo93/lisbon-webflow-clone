@@ -1,11 +1,29 @@
+"use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import { v4 as uuidv4 } from "uuid";
 import { Darker_Grotesque, Oxygen } from "next/font/google";
+import isInViewport from "@/lib/isInViewport";
 const darkerGrotesque = Darker_Grotesque({ subsets: ["latin"] });
 const oxyGen = Oxygen({ subsets: ["latin"], weight: "400" });
-
 const Banner = () => {
+  const uuid = uuidv4();
+  const [element, setElement] = useState<HTMLElement | null>(null);
+  // let element:HTMLElement;
+  // if (typeof document !== "undefined") {
+  //   element = document.getElementById(uuid + "banner") as HTMLElement;
+  // }
+  useEffect(() => {
+    let e = document.getElementById(uuid + "banner") as HTMLElement;
+    setElement(e);
+  });
+
+  window.addEventListener("scroll", () => {
+    let bounding = element?.getBoundingClientRect();
+    console.log(bounding);
+  });
   return (
-    <div className='  pt-[70px] h-screen    '>
+    <div className='  pt-[70px] h-screen    ' id={`${uuid}banner`}>
       {/* Paragraph */}
       <div className='my-12 z-30 absolute  left-1/2 -translate-x-1/2 bottom-[9%] flex items-center justify-center flex-col '>
         {/* Title */}
