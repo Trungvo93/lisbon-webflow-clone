@@ -7,28 +7,32 @@ import isInViewport from "@/lib/isInViewport";
 const darkerGrotesque = Darker_Grotesque({ subsets: ["latin"] });
 const oxyGen = Oxygen({ subsets: ["latin"], weight: "400" });
 const Banner = () => {
-  const uuid = uuidv4();
+  // const uuid = uuidv4();
+  const [uuid, setUuid] = useState<string | null>(null);
   const [element, setElement] = useState<HTMLElement | null>(null);
-  // let element:HTMLElement;
-  // if (typeof document !== "undefined") {
-  //   element = document.getElementById(uuid + "banner") as HTMLElement;
-  // }
+  const [bounding, setBounding] = useState<DOMRect | null>(null);
+  const [checked, setChecked] = useState<boolean>(false);
   useEffect(() => {
-    let e = document.getElementById(uuid + "banner") as HTMLElement;
+    let e = document.getElementById(uuid + "bannerTitle") as HTMLElement;
     setElement(e);
+    window.addEventListener("scroll", () => {
+      setChecked(isInViewport(document.getElementById(uuid + "bannerTitle")));
+    });
   });
-
-  window.addEventListener("scroll", () => {
-    let bounding = element?.getBoundingClientRect();
-    console.log(bounding);
-  });
+  useEffect(() => {
+    setUuid(uuidv4());
+  }, []);
+  console.log(checked);
   return (
-    <div className='  pt-[70px] h-screen    ' id={`${uuid}banner`}>
+    <div className='  mt-[70px] h-screen    '>
       {/* Paragraph */}
-      <div className='my-12 z-30 absolute  left-1/2 -translate-x-1/2 bottom-[9%] flex items-center justify-center flex-col '>
+      <div className='my-12 z-30 absolute w-full  left-1/2 -translate-x-1/2 bottom-[9%] flex items-center justify-center flex-col '>
         {/* Title */}
         <div
-          className={`max-w-[710px] mb-[10px] font-semibold text-[120px] ${darkerGrotesque.className} text-center leading-none`}>
+          className={`max-w-[710px] mb-[10px] font-semibold text-[120px] ${
+            darkerGrotesque.className
+          } text-center leading-none  ${checked ? `animate-zoom_out ` : ""}`}
+          id={`${uuid}bannerTitle`}>
           The <span className='text-[#0fc] text-[120px]'>Inventive</span> tech
           gathering
         </div>
@@ -62,7 +66,7 @@ const Banner = () => {
               width={205}
               height={0}
               priority
-              className='absolute top-[20%] right-[5%]  w-auto object-cover'
+              className='absolute top-[20%] right-[5%]  w-auto h-auto object-cover'
             />
             <Image
               src='/assets/images/Hero Image 8.png'
@@ -70,7 +74,7 @@ const Banner = () => {
               width={130}
               height={0}
               priority
-              className='absolute bottom-[4%]  right-[5%]  w-auto object-cover'
+              className='absolute bottom-[4%]  right-[5%]  w-auto h-auto object-cover'
             />
             <Image
               src='/assets/images/Hero Image 5.png'
@@ -78,7 +82,7 @@ const Banner = () => {
               width={130}
               height={0}
               priority
-              className='absolute bottom-[8%] left-[6%]  w-auto object-cover'
+              className='absolute bottom-[8%] left-[6%] h-auto w-auto object-cover'
             />
 
             <Image
@@ -87,7 +91,7 @@ const Banner = () => {
               width={94}
               height={0}
               priority
-              className='absolute bottom-[32%] left-[31%]  w-auto object-cover'
+              className='absolute bottom-[32%] left-[31%] h-auto w-auto  object-cover'
             />
 
             <Image
@@ -96,7 +100,7 @@ const Banner = () => {
               width={109}
               height={0}
               priority
-              className='absolute bottom-[26%] right-[20%]  w-auto object-cover'
+              className='absolute bottom-[26%] right-[20%] h-auto w-auto object-cover'
             />
 
             <Image
@@ -105,7 +109,7 @@ const Banner = () => {
               width={192}
               height={0}
               priority
-              className='absolute bottom-[0%] left-[26%]  w-auto object-cover'
+              className='absolute bottom-[0%] left-[26%] h-auto w-auto object-cover'
             />
           </div>
 
@@ -116,7 +120,7 @@ const Banner = () => {
               width={192}
               height={0}
               priority
-              className='absolute top-[10%] left-[5%]  w-auto h-auto object-cover'
+              className='absolute top-[10%] left-[5%] h-auto  w-auto  object-cover'
             />
             <Image
               src='/assets/images/Hero Image 2.png'
@@ -124,7 +128,7 @@ const Banner = () => {
               width={205}
               height={0}
               priority
-              className='absolute top-[20%] right-[5%]  w-auto object-cover'
+              className='absolute top-[20%] right-[5%] h-auto w-auto object-cover'
             />
             <Image
               src='/assets/images/Hero Image 8.png'
@@ -132,7 +136,7 @@ const Banner = () => {
               width={130}
               height={0}
               priority
-              className='absolute bottom-[4%]  right-[5%]  w-auto object-cover'
+              className='absolute bottom-[4%]  right-[5%]  w-auto h-auto object-cover'
             />
             <Image
               src='/assets/images/Hero Image 5.png'
@@ -140,7 +144,7 @@ const Banner = () => {
               width={130}
               height={0}
               priority
-              className='absolute bottom-[8%] left-[6%]  w-auto object-cover'
+              className='absolute bottom-[8%] left-[6%] h-auto w-auto object-cover'
             />
 
             <Image
@@ -149,7 +153,7 @@ const Banner = () => {
               width={94}
               height={0}
               priority
-              className='absolute bottom-[32%] left-[31%]  w-auto object-cover'
+              className='absolute bottom-[32%] left-[31%]  w-auto h-auto object-cover'
             />
 
             <Image
@@ -158,7 +162,7 @@ const Banner = () => {
               width={109}
               height={0}
               priority
-              className='absolute bottom-[26%] right-[20%]  w-auto object-cover'
+              className='absolute bottom-[26%] right-[20%] h-auto w-auto object-cover'
             />
 
             <Image
@@ -167,7 +171,7 @@ const Banner = () => {
               width={192}
               height={0}
               priority
-              className='absolute bottom-[0%] left-[26%]  w-auto object-cover'
+              className='absolute bottom-[0%] left-[26%] h-auto w-auto object-cover'
             />
           </div>
         </div>

@@ -18,9 +18,14 @@ const config: Config = {
           "0%": { transform: "translateY(0%)" },
           "100%": { transform: "translateY(-100%)" },
         },
+        translate_zoom_out: {
+          "0%": { transform: "scale3d(1.1, 1.1, 1)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
       },
       animation: {
         infinite: "translate_infinite 20s linear infinite",
+        zoom_out: "translate_zoom_out 1s linear ",
       },
       colors: {
         "cyan-default": "#0fc",
