@@ -21,6 +21,9 @@
   margin: 0px;
   font-size: 14px;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   color: white;
   background-color: black;

@@ -9,29 +9,32 @@ const oxyGen = Oxygen({ subsets: ["latin"], weight: "400" });
 const Banner = () => {
   // const uuid = uuidv4();
   const [uuid, setUuid] = useState<string | null>(null);
-  const [element, setElement] = useState<HTMLElement | null>(null);
-  const [bounding, setBounding] = useState<DOMRect | null>(null);
-  const [checked, setChecked] = useState<boolean>(false);
+  const [firstLoadAnimation, setFirstLoadAnimation] = useState<boolean>(false);
+  const [isViewport, setIsViewport] = useState<boolean>(false);
   useEffect(() => {
-    let e = document.getElementById(uuid + "bannerTitle") as HTMLElement;
-    setElement(e);
     window.addEventListener("scroll", () => {
-      setChecked(isInViewport(document.getElementById(uuid + "bannerTitle")));
+      setIsViewport(
+        isInViewport(document.getElementById(uuid + "bannerTitle"))
+      );
     });
   });
   useEffect(() => {
     setUuid(uuidv4());
+    setTimeout(() => {
+      setFirstLoadAnimation(true);
+    }, 1000);
   }, []);
-  console.log(checked);
   return (
-    <div className='  mt-[70px] h-screen    '>
+    <div className='  mt-[70px] h-screen    ' id='banner'>
       {/* Paragraph */}
       <div className='my-12 z-30 absolute w-full  left-1/2 -translate-x-1/2 bottom-[9%] flex items-center justify-center flex-col '>
         {/* Title */}
         <div
           className={`max-w-[710px] mb-[10px] font-semibold text-[120px] ${
             darkerGrotesque.className
-          } text-center leading-none  ${checked ? `animate-zoom_out ` : ""}`}
+          } text-center leading-none  ${
+            isViewport ? "animate-zoom_out" : ""
+          }  ${firstLoadAnimation ? "" : "animate-zoom_out"}`}
           id={`${uuid}bannerTitle`}>
           The <span className='text-[#0fc] text-[120px]'>Inventive</span> tech
           gathering

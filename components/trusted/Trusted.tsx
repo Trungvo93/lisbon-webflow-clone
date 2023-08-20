@@ -3,7 +3,7 @@ import Image from "next/image";
 const darker = Darker_Grotesque({ subsets: ["latin"] });
 const Trusted = () => {
   return (
-    <div className='mt-[70px]'>
+    <div className='mt-[70px] ' id='trusted'>
       <div className='text-center'>
         <span
           className={`text-cyan-default ${darker.className} font-semibold text-[24px]`}>

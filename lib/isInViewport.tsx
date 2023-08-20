@@ -1,7 +1,6 @@
 const isInViewport = (element: HTMLElement | null) => {
   if (element !== null) {
-    let bounding = element?.getBoundingClientRect();
-    console.log("bounding.top: ", bounding.top);
+    let bounding: DOMRect = element?.getBoundingClientRect();
     const locationShow = element.offsetHeight - 70;
     return (
       bounding.top >= -locationShow &&
