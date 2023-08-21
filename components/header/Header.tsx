@@ -1,4 +1,5 @@
 "use client";
+import scrollElementToView from "@/lib/scrollElementToView";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -16,7 +17,6 @@ const Header = () => {
       top: elem?.getBoundingClientRect().top,
       behavior: "smooth",
     });
-    // router.push(`/#${targetId}`);
   };
   return (
     <div className='flex justify-center h-[70px] bg-black  '>
@@ -31,13 +31,23 @@ const Header = () => {
           <Link
             href={`#trusted`}
             className='px-[15px] py-[7px] relative group '
+            // onClick={(e) => {
+            //   handleScroll(e);
+            // }}
             onClick={(e) => {
-              handleScroll(e);
+              e.preventDefault();
+              scrollElementToView("trusted");
             }}>
             <span className=''>About</span>
             <div className='absolute w-full h-full inset-0  bg-white rounded-[30px] opacity-0 group-hover:opacity-20 scale-75 group-hover:scale-100 duration-500'></div>
           </Link>
-          <Link href={`#banner`} className='px-[15px] py-[7px] relative group'>
+          <Link
+            href={`#banner`}
+            className='px-[15px] py-[7px] relative group'
+            onClick={(e) => {
+              e.preventDefault();
+              scrollElementToView("banner");
+            }}>
             <span className=''>Speakers</span>
             <div className='absolute w-full h-full inset-0  bg-white rounded-[30px] opacity-0 group-hover:opacity-20 scale-75 group-hover:scale-100 duration-500'></div>
           </Link>
