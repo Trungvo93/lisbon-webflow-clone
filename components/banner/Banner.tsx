@@ -10,11 +10,16 @@ const Banner = () => {
   // const uuid = uuidv4();
   const [uuid, setUuid] = useState<string | null>(null);
   const [firstLoadAnimation, setFirstLoadAnimation] = useState<boolean>(false);
-  const [isViewport, setIsViewport] = useState<boolean>(false);
+  const [isViewportTitle, setIsViewportTitle] = useState<boolean>(false);
+  const [isViewportContent, setIsViewportContent] = useState<boolean>(false);
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      setIsViewport(
+      setIsViewportTitle(
         isInViewport(document.getElementById(uuid + "bannerTitle"))
+      );
+      setIsViewportContent(
+        isInViewport(document.getElementById(uuid + "bannerContent"))
       );
     });
   });
@@ -33,7 +38,7 @@ const Banner = () => {
           className={`max-w-[710px] mb-[10px] font-semibold text-[120px] ${
             darkerGrotesque.className
           } text-center leading-none  ${
-            isViewport ? "animate-zoom_out" : ""
+            isViewportTitle ? "animate-zoom_out" : ""
           }  ${firstLoadAnimation ? "" : "animate-zoom_out"}`}
           id={`${uuid}bannerTitle`}>
           The <span className='text-[#0fc] text-[120px]'>Inventive</span> tech
@@ -42,16 +47,27 @@ const Banner = () => {
 
         {/* Content */}
         <div
-          className={`max-w-[700px] my-[36px] text-[18px] text-center ${oxyGen.className} leading-tight	`}>
-          Don’t miss out on this amazing opportunity and join us for the
-          Entrepreneur, Technophile & Creative Collaboration event!
+          id={`${uuid}bannerContent`}
+          className={` ${isViewportContent ? "animate-move_up" : ""}  ${
+            firstLoadAnimation ? "" : "animate-move_up"
+          }`}>
+          <div
+            className={`max-w-[700px] my-[36px] text-[18px] text-center ${oxyGen.className} leading-tight	`}>
+            Don’t miss out on this amazing opportunity and join us for the
+            Entrepreneur, Technophile & Creative Collaboration event!
+          </div>
+          <div className='flex justify-center items-center'>
+            <button
+              className={`bg-[#0fc] ${oxyGen.className}  px-[30px] py-[20px] text-black rounded-[17px] hover:bg-[#0fc]/80 duration-300 leading-[18.2px]`}>
+              Book your Ticket
+            </button>
+          </div>
+
+          <div className='absolute inset-0 bg-black -z-10 opacity-70 blur-2xl'></div>
         </div>
-        <button
-          className={`bg-[#0fc] ${oxyGen.className}  px-[30px] py-[20px] text-black rounded-[17px] hover:bg-[#0fc]/80 duration-300 leading-[18.2px]`}>
-          Book your Ticket
-        </button>
-        <div className='absolute inset-0 bg-black -z-10 opacity-70 blur-2xl'></div>
       </div>
+
+      {/* Background Animate */}
       <div className='relative inset-0 h-full  overflow-hidden'>
         <div className=' h-full w-full animate-infinite'>
           <div className='relative w-full h-full'>

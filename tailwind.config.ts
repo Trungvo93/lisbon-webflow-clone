@@ -22,10 +22,21 @@ const config: Config = {
           "0%": { transform: "scale3d(1.1, 1.1, 1)", opacity: "0" },
           "100%": { transform: "scale(1)", opacity: "1" },
         },
+        translate_move_up: {
+          "0%": { transform: "translateY(20%)", opacity: "0" },
+          "100%": { transform: "translateY(0%)", opacity: "1" },
+        },
+        translate_opacity: {
+          "0%": { opacity: "0" },
+          "40%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
       },
       animation: {
         infinite: "translate_infinite 20s linear infinite",
         zoom_out: "translate_zoom_out 1s linear ",
+        move_up: "translate_move_up 1s linear",
+        opacity: "translate_opacity 2s linear",
       },
       colors: {
         "cyan-default": "#0fc",
