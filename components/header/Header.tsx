@@ -22,7 +22,7 @@ const Header = () => {
         />
         <div className='flex justify-between items-center  font-medium gap-[10px]'>
           <Link
-            href={`#trusted`}
+            href={`#about`}
             className='px-[15px] py-[7px] relative group '
             onClick={(e) => {
               handleScroll(e);

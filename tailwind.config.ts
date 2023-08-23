@@ -41,6 +41,9 @@ const config: Config = {
       colors: {
         "cyan-default": "#0fc",
       },
+      height: {
+        "80vh": "80vh",
+      },
     },
   },
   plugins: [],

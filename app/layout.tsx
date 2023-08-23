@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Header from "@/components/header/Header";
 import Banner from "@/components/banner/Banner";
 import Trusted from "@/components/trusted/Trusted";
+import About from "@/components/about/About";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,10 +32,7 @@ export default function RootLayout({
           <Trusted />
         </div>
         <div>
-          <Trusted />
-        </div>
-        <div>
-          <Trusted />
+          <About />
         </div>
         <main>{children}</main>
       </body>
