@@ -7,9 +7,9 @@ const About = () => {
   return (
     <div
       id='about'
-      className='relative flex flex-col justify-center items-center h-80vh mt-[490px] max-w-[1350px] m-auto w-full'>
+      className=' h-full mt-[490px] max-w-[1350px] m-auto w-full relative flex flex-col items-center justify-center pb-[385px]  '>
       {/* Content */}
-      <div className={`max-w-[560px] w-full text-center  `}>
+      <div className={`max-w-[560px] w-full h-full text-center   `}>
         <div
           className={`${darkerGrotesque.className} text-[94px] font-semibold leading-none mb-[32px]	`}>
           Where Ideas are Born
@@ -21,27 +21,62 @@ const About = () => {
           transformation is what we love doing.
         </div>
       </div>
-
       {/* Behind Background */}
-      <div className='absolute inset-0 w-full h-full'>
-        <div className='w-[390px] h-[265px] absolute -top-[40%] left-1/2 -translate-x-1/2 rounded-xl overflow-hidden'>
-          <Image
-            src={"/assets/images/about_Person Presentation-p-500.webp"}
-            alt='about_Person Presentation-p-500'
-            fill
-            sizes='100vw'
-            className='object-cover w-auto h-auto'
-          />
-        </div>
-        <div className='w-[285px] h-[190px] absolute -top-[10%] left-[2%]  rounded-xl overflow-hidden'>
-          <Image
-            src={"/assets/images/about_Person Presentation 3.webp"}
-            alt='about_Person Presentation 3'
-            fill
-            sizes='100vw'
-            className='object-cover w-auto h-auto'
-          />
-        </div>
+      <div className='w-[390px] h-[265px] rounded-xl overflow-hidden absolute -top-[52%] left-[35%] '>
+        <Image
+          src={"/assets/images/about_Person Presentation-p-500.webp"}
+          alt='about_Person Presentation-p-500'
+          width={390}
+          height={265}
+          className='object-cover w-auto h-auto'
+        />
+      </div>
+      <div className='w-[285px] h-[190px] absolute -top-[28%] left-[2%]  rounded-xl overflow-hidden'>
+        <Image
+          src={"/assets/images/about_Person Presentation 3.webp"}
+          alt='about_Person Presentation 3'
+          width={285}
+          height={190}
+          className='object-cover w-auto h-auto'
+        />
+      </div>
+      <div className='w-[320px] h-[215px] absolute -top-[22%] right-[3%]  rounded-xl overflow-hidden'>
+        <Image
+          src={"/assets/images/about_Person Presentation 2-p-500.webp"}
+          alt='about_Person Presentation 2-p-500'
+          width={320}
+          height={215}
+          className='object-cover w-auto h-auto'
+        />
+      </div>
+      <div className='w-[405px] h-[220px] absolute top-[22%] -left-[2%]  rounded-xl overflow-hidden'>
+        <Image
+          src={"/assets/images/about_Person Presentation 5-p-500.webp"}
+          alt='about_Person Presentation 5-p-500'
+          width={405}
+          height={220}
+          className='object-cover w-auto h-auto'
+        />
+      </div>
+
+      <div className='w-[228px] h-[175px] absolute top-[35%] -right-[2%]  rounded-xl overflow-hidden'>
+        <Image
+          src={"/assets/images/about_Person Presentation 4-p-500.webp"}
+          alt='about_Person Presentation 4-p-500'
+          width={228}
+          height={175}
+          className='object-cover w-auto h-auto'
+        />
+      </div>
+
+      <div className='w-[390px] h-[265px] absolute top-[55%] right-[20%]  rounded-xl overflow-hidden'>
+        <Image
+          src={"/assets/images/about_Person Presentation 7-p-500.png"}
+          alt='about_Person Presentation 7-p-500'
+          width={390}
+          height={265}
+          className='object-cover w-auto h-auto'
+        />
       </div>
     </div>
   );
