@@ -12,7 +12,7 @@ const Banner = () => {
   const [firstLoadAnimation, setFirstLoadAnimation] = useState<boolean>(false);
   const [isViewportTitle, setIsViewportTitle] = useState<boolean>(false);
   const [isViewportContent, setIsViewportContent] = useState<boolean>(false);
-
+  const [heightScreen, setHeightScreen] = useState<number>(0);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setIsViewportTitle(
@@ -24,33 +24,41 @@ const Banner = () => {
     });
   });
   useEffect(() => {
+    setHeightScreen(window.screen.availHeight);
     setUuid(uuidv4());
     setTimeout(() => {
       setFirstLoadAnimation(true);
     }, 1000);
   }, []);
+  console.log(heightScreen);
   return (
-    <div className='  mt-[70px] h-screen    ' id='banner'>
+    <div
+      className={`  pt-[70px] ${
+        heightScreen == 0 ? "h-screen" : `h-[${heightScreen - 70}px]`
+      }   relative w-full    `}
+      id='banner'>
       {/* Paragraph */}
-      <div className='my-12 z-30 absolute w-full  left-1/2 -translate-x-1/2 bottom-[9%] flex items-center justify-center flex-col '>
+      <div className='mb-12    w-full h-full    flex items-center justify-center flex-col '>
         {/* Title */}
         <div
-          className={`max-w-[710px] mb-[10px] font-semibold text-[120px] ${
+          className={`max-w-[710px] relative z-10 mb-[10px] font-semibold text-[120px] ${
             darkerGrotesque.className
           } text-center leading-none  ${
             isViewportTitle ? "animate-zoom_out" : ""
           }  ${firstLoadAnimation ? "" : "animate-zoom_out"}`}
           id={`${uuid}bannerTitle`}>
-          The <span className='text-[#0fc] text-[120px]'>Inventive</span> tech
-          gathering
+          <h1>
+            The <span className='text-[#0fc] text-[120px]'>Inventive</span> tech
+            gathering
+          </h1>
+          <div className='absolute inset-0 bg-black -z-10 opacity-70 blur-2xl'></div>
         </div>
-
         {/* Content */}
         <div
           id={`${uuid}bannerContent`}
-          className={` ${isViewportContent ? "animate-move_up" : ""}  ${
-            firstLoadAnimation ? "" : "animate-move_up"
-          }`}>
+          className={`relative z-10 ${
+            isViewportContent ? "animate-move_up" : ""
+          }  ${firstLoadAnimation ? "" : "animate-move_up"}`}>
           <div
             className={`max-w-[700px] my-[36px] text-[18px] text-center ${oxyGen.className} leading-tight	`}>
             Don’t miss out on this amazing opportunity and join us for the
@@ -66,10 +74,9 @@ const Banner = () => {
           <div className='absolute inset-0 bg-black -z-10 opacity-70 blur-2xl'></div>
         </div>
       </div>
-
       {/* Background Animate */}
-      <div className='relative inset-0 h-full  overflow-hidden'>
-        <div className=' h-full w-full animate-infinite'>
+      <div className='absolute inset-0  overflow-hidden'>
+        <div className=' h-full  w-full animate-infinite '>
           <div className='relative w-full h-full'>
             <Image
               src='/assets/images/Hero Image 3.png'
@@ -194,7 +201,7 @@ const Banner = () => {
             />
           </div>
         </div>
-        <div className='h-[20%]  z-10 absolute bottom-0 inset-x-0 bg-gradient-to-t from-black from-40% '></div>
+        <div className='h-1/5  z-10 absolute bottom-0 inset-x-0 bg-gradient-to-t from-black from-40% '></div>
       </div>
     </div>
   );
