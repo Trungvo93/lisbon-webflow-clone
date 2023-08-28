@@ -30,7 +30,6 @@ const Banner = () => {
       setFirstLoadAnimation(true);
     }, 1000);
   }, []);
-  console.log(heightScreen);
   return (
     <div
       className={`  pt-[70px] ${
