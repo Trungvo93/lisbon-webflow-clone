@@ -2,9 +2,25 @@
 import scrollElementToView from "@/lib/scrollElementToView";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const Header = () => {
   const [showMobileNav, setShowMobileNav] = useState<boolean>(false);
+  // useEffect(() => {
+  //   window?.addEventListener("click", (e: MouseEvent) => {
+  //     if (document.getElementById("mobileNav")?.contains(e.target as Node)) {
+  //     } else {
+  //       setShowMobileNav(!showMobileNav);
+  //     }
+  //   });
+  //   return () => {
+  //     window?.removeEventListener("click", (e: MouseEvent) => {
+  //       if (document.getElementById("mobileNav")?.contains(e.target as Node)) {
+  //       } else {
+  //         setShowMobileNav(!showMobileNav);
+  //       }
+  //     });
+  //   };
+  // });
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
     // get the href and remove everything before the hash (#)
@@ -79,6 +95,7 @@ const Header = () => {
       </div>
       {/* Mobile Navigation */}
       <div
+        id='mobileNav'
         className={` fixed left-0 right-0 z-30  ${
           showMobileNav ? "top-[70px] " : "-top-[300px]  "
         } bg-black  border-white border-b-2  py-5 duration-700 `}>
