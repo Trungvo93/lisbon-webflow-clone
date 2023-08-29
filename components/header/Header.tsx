@@ -5,22 +5,23 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 const Header = () => {
   const [showMobileNav, setShowMobileNav] = useState<boolean>(false);
-  // useEffect(() => {
-  //   window?.addEventListener("click", (e: MouseEvent) => {
-  //     if (document.getElementById("mobileNav")?.contains(e.target as Node)) {
-  //     } else {
-  //       setShowMobileNav(!showMobileNav);
-  //     }
-  //   });
-  //   return () => {
-  //     window?.removeEventListener("click", (e: MouseEvent) => {
-  //       if (document.getElementById("mobileNav")?.contains(e.target as Node)) {
-  //       } else {
-  //         setShowMobileNav(!showMobileNav);
-  //       }
-  //     });
-  //   };
-  // });
+  const [countClickOutside, setCountClickOutside] = useState<number>(0);
+  useEffect(() => {
+    const hideNavMobile = (e: MouseEvent) => {
+      if (!document.getElementById("mobileNav")?.contains(e.target as Node)) {
+        if (countClickOutside < 1) {
+          setCountClickOutside(countClickOutside + 1);
+        } else {
+          setShowMobileNav(false);
+          setCountClickOutside(0);
+        }
+      }
+    };
+    window?.addEventListener("click", hideNavMobile);
+    return () => {
+      window?.removeEventListener("click", hideNavMobile);
+    };
+  });
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
     // get the href and remove everything before the hash (#)
@@ -31,6 +32,7 @@ const Header = () => {
   const handleShowNav = () => {
     setShowMobileNav(!showMobileNav);
   };
+
   return (
     <div>
       <div

@@ -32,23 +32,27 @@ const Banner = () => {
   }, []);
   return (
     <div
-      className={`  pt-[70px] ${
-        heightScreen == 0 ? "h-screen" : `h-[${heightScreen - 70}px]`
-      }   relative w-full    `}
+      className={`     relative w-full    `}
+      style={{
+        height: heightScreen === 0 ? "100vh" : `${heightScreen - 110}px`,
+      }}
       id='banner'>
       {/* Paragraph */}
-      <div className='mb-12    w-full h-full    flex items-center justify-center flex-col '>
+      <div className='mb-12     w-full h-full    flex items-center justify-center flex-col '>
         {/* Title */}
         <div
-          className={`max-w-[710px] relative z-10 mb-[10px] font-semibold text-[120px] ${
+          className={`max-w-[710px] relative z-10 laptop:mb-[10px]  font-semibold laptop:text-[120px] tablet:text-[80px] text-[56px] ${
             darkerGrotesque.className
           } text-center leading-none  ${
             isViewportTitle ? "animate-zoom_out" : ""
           }  ${firstLoadAnimation ? "" : "animate-zoom_out"}`}
           id={`${uuid}bannerTitle`}>
           <h1>
-            The <span className='text-[#0fc] text-[120px]'>Inventive</span> tech
-            gathering
+            The{" "}
+            <span className='text-[#0fc] laptop:text-[120px] tablet:text-[80px] text-[56px]'>
+              Inventive
+            </span>{" "}
+            tech gathering
           </h1>
           <div className='absolute inset-0 bg-black -z-10 opacity-70 blur-2xl'></div>
         </div>

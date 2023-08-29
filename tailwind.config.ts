@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     screens: {
       laptop: "991px",
+      tablet: "768px",
     },
     extend: {
       backgroundImage: {

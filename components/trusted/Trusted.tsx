@@ -10,20 +10,20 @@ const Trusted = () => {
           COLLABORATORS
         </span>
       </div>
-      <div className='flex justify-center items-center gap-14 mt-3'>
+      <div className='grid grid-cols-2 tablet:flex justify-items-center gap-8 justify-center items-center laptop:gap-14 tablet:gap-10  mt-3'>
         <Image
           src='assets/images/648c179d5ba5eec89600235c_Logo1.svg'
           alt='648c179d5ba5eec89600235c_Logo1'
           width={0}
           height={0}
-          className='object-cover invert w-auto h-auto max-h-[35px]  max-w-[165px] px-[14px]	'
+          className='  object-cover invert w-auto h-auto max-h-[35px]  max-w-[165px] px-[14px]	'
         />
         <Image
           src='assets/images/648c179d5ba5eec896002363_Logo2.svg'
           alt='648c179d5ba5eec896002363_Logo2'
           width={0}
           height={0}
-          className='object-cover invert w-auto h-auto max-h-[35px]  max-w-[165px] px-[14px]	'
+          className=' object-cover invert w-auto h-auto max-h-[35px]  max-w-[165px] px-[14px]	'
         />
 
         <Image
@@ -31,7 +31,7 @@ const Trusted = () => {
           alt='648c179d5ba5eec896002365_Logo3'
           width={0}
           height={0}
-          className='object-cover invert w-auto h-auto max-h-[35px]  max-w-[165px] px-[14px]	'
+          className=' object-cover invert w-auto h-auto max-h-[35px]  max-w-[165px] px-[14px]	'
         />
 
         <Image
@@ -39,7 +39,7 @@ const Trusted = () => {
           alt='648c179d5ba5eec896002369_Logo4'
           width={0}
           height={0}
-          className='object-cover invert w-auto h-auto max-h-[35px]  max-w-[165px] px-[14px]	'
+          className=' object-cover invert w-auto h-auto max-h-[35px]  max-w-[165px] px-[14px]	'
         />
       </div>
     </div>
