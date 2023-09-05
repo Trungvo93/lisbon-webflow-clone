@@ -8,24 +8,20 @@ const darkerGrotesque = Darker_Grotesque({ subsets: ["latin"] });
 const oxyGen = Oxygen({ subsets: ["latin"], weight: "400" });
 const Banner = () => {
   // const uuid = uuidv4();
-  const [uuid, setUuid] = useState<string | null>(null);
   const [firstLoadAnimation, setFirstLoadAnimation] = useState<boolean>(false);
   const [isViewportTitle, setIsViewportTitle] = useState<boolean>(false);
   const [isViewportContent, setIsViewportContent] = useState<boolean>(false);
   const [heightScreen, setHeightScreen] = useState<number>(0);
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      setIsViewportTitle(
-        isInViewport(document.getElementById(uuid + "bannerTitle"))
-      );
+      setIsViewportTitle(isInViewport(document.getElementById("bannerTitle")));
       setIsViewportContent(
-        isInViewport(document.getElementById(uuid + "bannerContent"))
+        isInViewport(document.getElementById("bannerContent"))
       );
     });
   });
   useEffect(() => {
     setHeightScreen(window.screen.availHeight);
-    setUuid(uuidv4());
     setTimeout(() => {
       setFirstLoadAnimation(true);
     }, 1000);
@@ -46,7 +42,7 @@ const Banner = () => {
           } text-center leading-none  ${
             isViewportTitle ? "animate-zoom_out" : ""
           }  ${firstLoadAnimation ? "" : "animate-zoom_out"}`}
-          id={`${uuid}bannerTitle`}>
+          id={`bannerTitle`}>
           <h1>
             The{" "}
             <span className='text-[#0fc] laptop:text-[120px] tablet:text-[80px] text-[56px]'>
@@ -58,7 +54,7 @@ const Banner = () => {
         </div>
         {/* Content */}
         <div
-          id={`${uuid}bannerContent`}
+          id={`bannerContent`}
           className={`relative z-10 ${
             isViewportContent ? "animate-move_up" : ""
           }  ${firstLoadAnimation ? "" : "animate-move_up"}`}>

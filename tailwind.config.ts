@@ -26,6 +26,11 @@ const config: Config = {
           "0%": { transform: "scale3d(1.1, 1.1, 1)", opacity: "0" },
           "100%": { transform: "scale(1)", opacity: "1" },
         },
+        translate_zoom_in: {
+          "0%": { transform: "scale3d(0.5, 0.5, 0.5) translateY(20%)" },
+          "80%": { transform: "scale3d(1.1, 1.1, 1.1) translateY(0%)" },
+          "100%": { transform: "scale(1) translateY(0%)" },
+        },
         translate_move_up: {
           "0%": { transform: "translateY(20%)", opacity: "0" },
           "100%": { transform: "translateY(0%)", opacity: "1" },
@@ -39,6 +44,7 @@ const config: Config = {
       animation: {
         infinite: "translate_infinite 20s linear infinite",
         zoom_out: "translate_zoom_out 1s linear ",
+        zoom_in: "translate_zoom_in 0.5s ease-in-out ",
         move_up: "translate_move_up 1s linear",
         opacity: "translate_opacity 2s linear",
       },
