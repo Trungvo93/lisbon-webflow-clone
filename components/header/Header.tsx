@@ -83,7 +83,7 @@ const Header = () => {
               onClick={() => {
                 handleShowNav();
               }}
-              className='bg-white w-[42px] h-[42px] me-4 rounded-xl flex justify-center items-center '>
+              className='bg-white w-[42px] h-[42px] me-4 rounded-xl flex justify-center items-center laptop:hidden'>
               <Image
                 src='assets/images/menu-icon.svg'
                 alt='menu icon'
